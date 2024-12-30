@@ -1,0 +1,49 @@
+<h1>Customer Management</h1>
+
+<!-- Add Customer Form -->
+<div>
+  <h3>Add Customer</h3>
+  <input [(ngModel)]="newCustomer.name" placeholder="Name" />
+  <input [(ngModel)]="newCustomer.email" placeholder="Email" />
+  <input [(ngModel)]="newCustomer.balance" placeholder="Balance" type="number" />
+  <button (click)="addCustomer()">Add</button>
+</div>
+
+<!-- Edit Customer Form -->
+<div *ngIf="editingCustomer">
+  <h3>Edit Customer</h3>
+  <input [(ngModel)]="editingCustomer.name" placeholder="Name" />
+  <input [(ngModel)]="editingCustomer.email" placeholder="Email" />
+  <input
+    [(ngModel)]="editingCustomer.balance"
+    placeholder="Balance"
+    type="number"
+  />
+  <button (click)="updateCustomer()">Update</button>
+  <button (click)="editingCustomer = null">Cancel</button>
+</div>
+
+<!-- Customers Table -->
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Balance</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let customer of customers">
+    <td>{{ customer.id }}</td>
+    <td>{{ customer.name }}</td>
+    <td>{{ customer.email }}</td>
+    <td>{{ customer.balance }}</td>
+    <td>
+      <button (click)="editCustomer(customer)">Edit</button>
+      <button (click)="deleteCustomer(customer.id)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -152,9 +152,7 @@ Frontend/
 3. Commit your changes and push to your forked repository.
 4. Create a pull request to the main repository.
 
----
 
-## License
 
-This project is licensed under the MIT License. Feel free to use, modify, and distribute it as per the license terms.
+
 
